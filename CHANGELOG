@@ -1,3 +1,9 @@
+2015-10-15  Christian Richardt  <christian@richardt.name>
+
+        * Integrated Pierre Moulon's CMake build system from
+          https://github.com/TheFrenchLeaf/Bundler
+
+
 2013-12-29  Noah Snavely  <snavely@cs.cornell.edu>
 
         * Added support for Ceres solver

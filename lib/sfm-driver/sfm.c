@@ -309,13 +309,13 @@ int sfm_project_rd(camera_params_t *init, double *K, double *k,
     double tnew[3];
     double b_cam[3];
 
+    int in_front = 1;
+
     t = init->t;
 
     tnew[0] = dt[0];
     tnew[1] = dt[1];
     tnew[2] = dt[2];
-
-    int in_front = 1;
 
     /* Project! */
     if (!explicit_camera_centers) {

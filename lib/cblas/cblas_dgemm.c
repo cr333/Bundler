@@ -8,7 +8,11 @@
  */
 
 #include "cblas.h"
-#include "cblas_f77.h"
+#if defined(MACOS) || defined(WIN32)
+  #include "../clapack/INSTALL/blaswrap.h"
+#else
+  #include "cblas_f77.h"
+#endif
 void cblas_dgemm(const enum CBLAS_ORDER Order, const enum CBLAS_TRANSPOSE TransA,
                  const enum CBLAS_TRANSPOSE TransB, const int M, const int N,
                  const int K, const double alpha, const double  *A,
@@ -69,7 +73,7 @@ void cblas_dgemm(const enum CBLAS_ORDER Order, const enum CBLAS_TRANSPOSE TransA
          F77_TB = C2F_CHAR(&TB);
       #endif
 
-      F77_dgemm(F77_TA, F77_TB, &F77_M, &F77_N, &F77_K, &alpha, A,
+      dgemm_(F77_TA, F77_TB, &F77_M, &F77_N, &F77_K, &alpha, A,
        &F77_lda, B, &F77_ldb, &beta, C, &F77_ldc);
    } else if (Order == CblasRowMajor)
    {
@@ -99,7 +103,7 @@ void cblas_dgemm(const enum CBLAS_ORDER Order, const enum CBLAS_TRANSPOSE TransA
          F77_TB = C2F_CHAR(&TB);
       #endif
 
-      F77_dgemm(F77_TA, F77_TB, &F77_N, &F77_M, &F77_K, &alpha, B,
+      dgemm_(F77_TA, F77_TB, &F77_N, &F77_M, &F77_K, &alpha, B,
                   &F77_ldb, A, &F77_lda, &beta, C, &F77_ldc);
    } 
    else  cblas_xerbla(1, "cblas_dgemm", "Illegal Order setting, %d\n", Order);

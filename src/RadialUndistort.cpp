@@ -198,7 +198,7 @@ void ReadListFile(char *list_file, std::vector<std::string> &files)
         if (buf[strlen(buf)-1] == '\n')
             buf[strlen(buf)-1] = 0;
 
-        char *space = index(buf, ' ');
+        char *space = strchr(buf, ' ');
         if (space) *space = 0;
 
         files.push_back(std::string(buf));

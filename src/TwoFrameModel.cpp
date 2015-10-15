@@ -25,8 +25,13 @@
 #include "qsort.h"
 #include "util.h"
 
-#ifdef WIN32
-#define isnan _isnan
+// Missing C99 functionality in Visual Studio before 2013.
+// <http://blogs.msdn.com/b/vcblog/archive/2013/07/19/c99-library-support-in-visual-studio-2013.aspx>
+#if defined(_MSC_VER) && _MSC_VER < 1800
+namespace std
+{
+	inline bool isnan(double arg) { return _isnan(arg) != 0; }
+};
 #endif
 
 static void ReadVector(FILE *f, int n, double *v)

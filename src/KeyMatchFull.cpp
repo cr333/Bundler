@@ -16,6 +16,7 @@
 /* KeyMatchFull.cpp */
 /* Read in keys, match, write results to a file */
 
+#include <algorithm>
 #include <time.h>
 #include <stdio.h>
 #include <stdlib.h>

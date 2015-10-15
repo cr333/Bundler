@@ -148,7 +148,8 @@ double img_laplacian(img_t *img, int x, int y) {
   return img_pixel_convolve_gs(img, x, y, 5, 5, laplace_kernel, 1.0);
 }
 
-#ifdef WIN32
+// 'erf' is part of C99, and is supported from VS 2013 onwards.
+#if defined(WIN32) && _MSC_VER < 1800
 static double erf (double x) {
   int sign;
   double t;

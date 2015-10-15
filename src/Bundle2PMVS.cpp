@@ -16,6 +16,14 @@
 #include "sfm.h"
 #include "LoadJPEG.h"
 
+#ifdef WIN32
+#include <direct.h>
+void mkdir(const char* path, int temp)
+{
+    mkdir(path);
+}
+#endif
+
 typedef struct 
 {
     double pos[3];
