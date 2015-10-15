@@ -1,8 +1,9 @@
 This is a modified version of Bundler with CMake support for compiling Bundler on Linux, Windows and Mac.
 
-* Original code by Noah Snavely and contributors <https://github.com/snavely/bundler_sfm>
-* Initial CMake port by Pierre Moulon (pmoulon[AT]gmail.com)
-* Mac port by Kai Ni <http://www.kaini.org/>
+* Original code by Noah Snavely and contributors <https://github.com/snavely/bundler_sfm>.
+* Initial CMake port by Pierre Moulon (pmoulon@gmail.com).
+* Mac port by Kai Ni <http://www.kaini.org/>.
+* Integrated by Christian Richardt (christian@richardt.name).
 
 
 Bundler User's Manual
